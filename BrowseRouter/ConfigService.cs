@@ -8,14 +8,14 @@ public interface IConfigService
 public class ConfigService : IConfigService
 {
   /// <summary>
-  /// Config lives in the same folder as the EXE, name "BrowserSelector.ini".
+  /// Config lives in the same folder as the EXE, name "BrowseRouterConfig.ini".
   /// </summary>
   public readonly string ConfigPath;
 
   public ConfigService()
   {
     // Fix for self-contained publishing
-    ConfigPath = Path.Combine(Path.GetDirectoryName(App.ExePath)!, "config.ini");
+    ConfigPath = Path.Combine(Path.GetDirectoryName(App.ExePath)!, "BrowseRouterConfig.ini");
   }
   
   private IEnumerable<string>? _configLines = null;
