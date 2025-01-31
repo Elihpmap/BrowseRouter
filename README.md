@@ -54,7 +54,7 @@ In Windows, launch a different browser depending on the url.
 
 ## Setting Up
 
-1. Download the latest release.
+1. Download and unzip the [latest release](https://github.com/nref/BrowseRouter/releases/latest).
 2. Open `config.ini` and customize as desired.
 3. Run `BrowseRouter.exe` without arguments. No need to run as admin.
    It will register with Windows as a web browser and open the Settings app.
@@ -68,6 +68,10 @@ In Windows, launch a different browser depending on the url.
 
 - Windows 10, x64 and arm64
 - Windows 11, x64 and arm64
+
+## Changelog
+
+Changes and updates to this project are detailed in the [CHANGELOG.md file](/CHANGELOG.md). Check it if you plan to upgrade from a previous version and want to know what's new (or what may now be incompatible in some cases)!
 
 ## Why?
 
