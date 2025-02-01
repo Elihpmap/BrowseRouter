@@ -3,20 +3,22 @@
 All notable changes to this project should be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project now adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project (now) adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
 
-## Unreleased 
+## Unreleased (will be [0.15.0])
 
 ### Added
-- Changelog File to follow the project evolution and compatibility changes
-
-### Fixed
-- Wrong "Source" found when the process opening the link is not currently in the foreground or has no window title
+- Changelog File to follow the project evolution and compatibility changes.
+- Version number at the start of the config file to be able to test for compatibility issues and warn the user if any are found.
 
 ### Changed
-- the "Source" comparison strings are now also containig the calling process name in addition to the main window title of the calling program (if it has any)
+- The "Source" comparison strings are now also containig the calling process name in addition to the main window title of the calling program (if it has any).
+- The name of the config file is now `BrowseRouterConfig.ini` and not `config.ini` anymore.
+
+### Fixed
+- Wrong "Source" found when the process opening the link is not currently in the foreground or has no window title.
 
 
 

@@ -19,7 +19,7 @@ It's made by the same author, [@nref](https://github.com/nref/), so you can expe
 | Runs on Linux                       | ❌                                    | ✅                                  |
 | Detects installed browsers          | ❌                                    | ✅                                  |
 | Has a GUI                           | ❌                                    | ✅                                  |
-| Configuration                       | via `config.ini`                      | via GUI                              |
+| Configuration                       | via `BrowserRouterConfig.ini`         | via GUI                              |
 
 # BrowseRouter 
 
@@ -55,7 +55,7 @@ In Windows, launch a different browser depending on the url.
 ## Setting Up
 
 1. Download and unzip the [latest release](https://github.com/nref/BrowseRouter/releases/latest).
-2. Open `config.ini` and customize as desired.
+2. Open `BrowserRouterConfig.ini` and customize as desired.
 3. Run `BrowseRouter.exe` without arguments. No need to run as admin.
    It will register with Windows as a web browser and open the Settings app.
    To unregister, run it again.
@@ -105,7 +105,7 @@ Your system administrator could know which pages you are visiting by auditing pr
 
 ## Notifications
 
-By default, `BrowseRouter` will show a desktop notification when it opens a link. You can disable this in `config.ini`.
+By default, `BrowseRouter` will show a desktop notification when it opens a link. You can disable this in `BrowserRouterConfig.ini`.
 
 <img width="400" alt="Notification" src="https://github.com/user-attachments/assets/da647dc6-407e-4eda-81b9-bf258e82214b">
 
@@ -114,6 +114,10 @@ By default, `BrowseRouter` will show a desktop notification when it opens a link
 Config is a poor man's INI file:
 
 ```ini
+#This section is just to check for compatibility issues as too old BrowserRouterConfig.ini file might not work with the most recent releases of the program.
+[compatibility]
+version = 0.15.0 
+
 [notify]
 # Show a desktop notification when opening a link. Defaults to true
 enabled = true
@@ -127,7 +131,7 @@ enabled = true
 #file = "C:\Users\<user>\Desktop\BrowseRouter.log"
 
 # Default browser is first in list
-# Use `{url}` to specify UWP app browser details (not currently working, see following issue: https://github.com/nref/BrowseRouter/issues/10)
+# Use `{url}` to specify UWP app browser details
 # Environment variables (like %ProgramFiles% for example) can be used 
 [browsers]
 ff = %ProgramFiles%\Mozilla Firefox\firefox.exe
@@ -191,7 +195,7 @@ For example if you want a browser which strip the query from the opened links, y
 ### Sources
 
 - You can specify a "source preference" which matches the window title and the process name of the application used to open the link.
-  - For example, with this in the previous example `config.ini`:
+  - For example, with this in the previous example `BrowserRouterConfig.ini`:
 
     ```ini
     [sources]
@@ -230,9 +234,9 @@ There are two ways to specify an Url. You can use simple wildcards or full regul
 
 Logs are stored by default in `%localappdata%/BrowseRouter/`. For example, if you user name is `joe`, then the logs will be in `C:\Users\joe\AppData\Local\BrowseRouter\`.
 
-You can change the directory in the `[log]` section of `config.ini`.
+You can change the directory in the `[log]` section of `BrowserRouterConfig.ini`.
 
-You can enable disable or log files by setting `enabled = true` or `false` in the `[log]` section of `config.ini`.
+You can enable disable or log files by setting `enabled = true` or `false` in the `[log]` section of `BrowserRouterConfig.ini`.
 If `enabled` is missing or doesn't equal `true`, logs will not be written.
 
 Log entries are also written to the console and can be seen if e.g. if launched from Command Prompt, PowerShell, or Windows Terminal.

@@ -16,6 +16,24 @@ public class ConfigService : IConfigService
   {
     // Fix for self-contained publishing
     ConfigPath = Path.Combine(Path.GetDirectoryName(App.ExePath)!, "BrowseRouterConfig.ini");
+
+    //TODO continue this check of VersionNumber
+    Dictionary<string, string> compatValues = GetConfig("compatibility")
+      .Select(SplitConfig)
+      .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+
+    SemVerNum configVersion;
+    if (compatValues.TryGetValue("version", out string? versionStr) && SemVerNum.TryParse(versionStr, out SemVerNum version))
+    {
+      configVersion = version;
+    }
+    else
+    {
+      //no version found, your BrowseRouterConfig.ini file is probably at version 0.14.0 or older!
+      configVersion = SemVerNum.Zero;
+    }
+
+    CompatibilityService.CheckConfigCompatibility(configVersion);
   }
   
   private IEnumerable<string>? _configLines = null;
